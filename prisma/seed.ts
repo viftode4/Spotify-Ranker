@@ -9,17 +9,19 @@ async function main() {
   // Check if admin user exists
   const adminExists = await prisma.user.findFirst({
     where: { 
-      email: "admin@spotify-ranker.com",
+      email: "admin@spotifyranker.com",
     }
   });
   
   // If admin user doesn't exist, create one
   if (!adminExists) {
     console.log('Creating admin user...');
+    const hashedPassword = await bcrypt.hash("spotify_ranker_admin123", 10);
     await prisma.user.create({
       data: {
         name: "Admin User",
-        email: "admin@spotify-ranker.com",
+        email: "admin@spotifyranker.com",
+        password: hashedPassword,
         isAdmin: true,
         id: "admin-user", // Use a consistent ID for the admin user
       }

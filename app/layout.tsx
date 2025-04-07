@@ -6,6 +6,7 @@ import { MobileNavigation } from "@/components/MobileNavigation";
 import { getSession } from "@/lib/auth";
 import { SessionProvider } from "@/components/SessionProvider";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 
@@ -35,6 +36,7 @@ export default async function RootLayout({
           <MobileNavigation session={session} />
           <Toaster />
         </SessionProvider>
+        <Analytics />
       </body>
     </html>
   );
