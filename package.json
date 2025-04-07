@@ -11,7 +11,8 @@
     "db:full-reset": "ts-node --compiler-options {\"module\":\"CommonJS\"} scripts/full-db-reset.ts",
     "db:clean": "node scripts/clean-neon-db.js",
     "db:nuke": "node scripts/nuke-migrations.js",
-    "db:size": "node scripts/check-db-size.js"
+    "db:size": "node scripts/check-db-size.js",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.8.0",
